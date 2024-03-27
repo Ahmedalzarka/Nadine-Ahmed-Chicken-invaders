@@ -12,12 +12,14 @@ SOURCES += \
     bullet.cpp \
     chicken.cpp \
     main.cpp \
-    ship.cpp
+    ship.cpp \
+    stats.cpp
 
 HEADERS += \
     bullet.h \
     chicken.h \
-    ship.h
+    ship.h \
+    stats.h
 
 FORMS +=
 
