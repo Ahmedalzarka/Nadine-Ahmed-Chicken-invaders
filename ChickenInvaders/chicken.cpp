@@ -6,7 +6,7 @@
 
 
 Chicken::Chicken(): QObject(), QGraphicsPixmapItem(){
-    this->setPixmap(QPixmap("D:/code/university/CSII Lab/Assignment2/Nadine-Ahmed-Chicken-invaders/ChickenInvaders/imgs/chicken.png").scaled(80,80));
+    this->setPixmap(QPixmap("D:/code/university/CSII Lab/Assignment2/Nadine-Ahmed-Chicken-invaders/ChickenInvaders/imgs/otherChicken.png").scaled(80,80));
     int randomNumber = rand() % 801;
     setPos(randomNumber, 0);
 

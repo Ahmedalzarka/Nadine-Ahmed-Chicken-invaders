@@ -3,10 +3,11 @@
 #include <QGraphicsScene>
 #include <QDebug>
 #include "chicken.h"
+#include "bullet.h"
 
 Ship::Ship()
 {
-    setPixmap(QPixmap(":/imgs/ship.png"));
+    setPixmap(QPixmap("/imgs/ship.png"));
 
 }
 
@@ -33,6 +34,12 @@ void Ship::keyPressEvent(QKeyEvent *event)
     else if(event->key() == Qt::Key_Down){
         if(y() + 100 < 600)
             setPos(x(), y() + 10);
+    }
+    else if(event->key() == Qt::Key_Space)
+    {
+        Bullet * bullet = new Bullet();
+        bullet->setPos(x()+30,y());
+        scene()->addItem(bullet);
     }
 }
 
