@@ -5,7 +5,7 @@
 
 Player::Player(QGraphicsTextItem * score)
 {
-    score = score;
+    this->score = score;
     scoreValue = 0;
 }
 

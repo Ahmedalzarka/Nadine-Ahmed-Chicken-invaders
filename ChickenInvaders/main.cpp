@@ -1,59 +1,40 @@
-#include "player.h"
 #include <QApplication>
-#include <QGraphicsView>
-#include <QGraphicsScene>
 #include <QGraphicsRectItem>
-#include <QGraphicsEllipseItem>
-#include <QGraphicsTextItem>
-#include <QGraphicsPixmapItem>
-
+#include <QGraphicsScene>
+#include<QGraphicsView>
+#include <QTimer>
+#include <QDebug>
+#include <QBrush>
+#include "ship.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    QGraphicsView view;
-    view.setFixedSize(800, 600);
+    // Create scene
+    QGraphicsScene * scene = new QGraphicsScene();
 
-    view.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
-    QGraphicsScene scene;
-    scene.setSceneRect(0, 0, 800, 600);
-
-    //chicken enemy
-    QPixmap chicken("C:/Users/Nadine/Downloads/Assignment 2 - Game (2).zip/chicken.png");
-
-    // score
-    QGraphicsTextItem * score = new QGraphicsTextItem;
-    score->setFont(QFont("times", 16));
-    score->setDefaultTextColor(Qt::blue);
-    score->setPlainText("Score: " + QString::number(0));
-    score->setPos(600, 10);
-    scene.addItem(score);
+    // Add ship tp the scene
+    QGraphicsPixmapItem * player = new Ship();
 
 
-    // laser
-    QPixmap laser("C:/Users/Nadine/Desktop/AUC/Semester 4/CS2 Lab/ChickenInvaders/red_laser.png");
-    laser = laser.scaledToWidth(50);
-    laser = laser.scaledToHeight(50);
-    QGraphicsPixmapItem * image1 = new QGraphicsPixmapItem;
-    image1->setPixmap(laser);
-    image1->setPos(30, 400);
-    scene.addItem(image1);
+    // Add player to scene
+    scene-> addItem(player);
 
-    // ship player
-    QPixmap ship("C:/Users/Nadine/Desktop/AUC/Semester 4/CS2 Lab/ChickenInvaders/ship.png");
-    laser = ship.scaledToWidth(80);
-    laser = ship.scaledToHeight(80);
-    Player * player = new Player(score);
-    player->setPixmap(ship);
-    player->setPos(10, 450);
-    scene.addItem(player);
+    // Remove scroll bars
+    QGraphicsView * view = new QGraphicsView(scene);
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    // Make player focusable
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
 
-    view.setScene(&scene);
-    view.show();
+    // Show the view
+    view->show();
+    view->setFixedSize(800,600);
+    scene->setSceneRect(0,0,800,600);
+    QBrush blue(Qt::blue);
+    scene->setBackgroundBrush(blue);
 
     return a.exec();
 }
