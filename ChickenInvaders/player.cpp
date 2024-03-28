@@ -1,4 +1,5 @@
 #include "player.h"
+<<<<<<< HEAD
 #include "enemy.h"
 #include "laser.h"
 #include <QKeyEvent>
@@ -9,6 +10,15 @@
 Player::Player(QGraphicsTextItem * score)
 {
     score = score;
+=======
+
+#include <QKeyEvent>
+#include <QGraphicsScene>
+
+Player::Player(QGraphicsTextItem * score)
+{
+    this->score = score;
+>>>>>>> f0f4151c72bb2d9913c63fd21d150e99d9bcbae1
     scoreValue = 0;
 }
 
@@ -16,6 +26,7 @@ void Player::keyPressEvent(QKeyEvent * event)
 {
     if (event->key() == Qt::Key_Left)
     {
+<<<<<<< HEAD
         if(x()>0)
         {
             setPos(x()-10,y());
@@ -26,6 +37,13 @@ void Player::keyPressEvent(QKeyEvent * event)
         { if(x()+100<800)
                 setPos(x()+10,y());
         }
+=======
+        setPos(x()-30, y());
+    }
+    else if (event->key() == Qt::Key_Right)
+    {
+        setPos(x()+30, y());
+>>>>>>> f0f4151c72bb2d9913c63fd21d150e99d9bcbae1
     }
     else if (event->key() == Qt::Key_Up)
     {
@@ -35,6 +53,7 @@ void Player::keyPressEvent(QKeyEvent * event)
     {
         setPos(x(), y()+30);
     }
+<<<<<<< HEAD
     else if(event->key()== Qt::Key_Space)
     {
         laser * laser1 = new laser();
@@ -47,10 +66,18 @@ void Player::keyPressEvent(QKeyEvent * event)
     for(int i = 0; i < colliding_items.size(); i++)
     {
         scene()->removeItem(colliding_items[i]);
+=======
+
+    QList<QGraphicsItem *> colliding_items = collidingItems(); // list of poiners
+    for(int i = 0; i < colliding_items.size(); i++)
+    {
+        scene()->removeItem(colliding_items[i]); // need to #include
+>>>>>>> f0f4151c72bb2d9913c63fd21d150e99d9bcbae1
         scoreValue++;
         score->setPlainText("Score: " + QString::number(scoreValue));
     }
 }
+<<<<<<< HEAD
 
 void Player::createEnemy()
 { enemy * enemy1 = new enemy();
@@ -58,3 +85,5 @@ void Player::createEnemy()
 
 }
 
+=======
+>>>>>>> f0f4151c72bb2d9913c63fd21d150e99d9bcbae1

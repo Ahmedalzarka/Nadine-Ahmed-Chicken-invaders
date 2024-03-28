@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "player.h"
 #include <QApplication>
 #include <QGraphicsView>
@@ -6,11 +7,23 @@
 #include <QGraphicsEllipseItem>
 #include <QGraphicsTextItem>
 #include <QGraphicsPixmapItem>
+=======
+#include <QApplication>
+#include <QGraphicsRectItem>
+#include <QGraphicsScene>
+#include<QGraphicsView>
+#include <QTimer>
+#include <QDebug>
+#include <QBrush>
+#include "ship.h"
+#include "stats.h"
+>>>>>>> f0f4151c72bb2d9913c63fd21d150e99d9bcbae1
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
+<<<<<<< HEAD
     QGraphicsView view;
     view.setFixedSize(800, 600);
 
@@ -54,6 +67,36 @@ int main(int argc, char *argv[])
 
     view.setScene(&scene);
     view.show();
+=======
+    QGraphicsScene * scene = new QGraphicsScene();
+    QGraphicsPixmapItem * player = new Ship();
+    scene-> addItem(player);
+    QGraphicsView * view = new QGraphicsView(scene);
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    player->setFlag(QGraphicsItem::ItemIsFocusable);
+    player->setFocus();
+
+
+    view->show();
+    view->setFixedSize(800,600);
+    scene->setSceneRect(0,0,800,600);
+    QBrush blue(Qt::blue);
+    scene->setBackgroundBrush(blue);
+
+    player->setPos(view->width()/2,view->height() - player->pixmap().height());
+
+    QGraphicsTextItem* scoreText = new QGraphicsTextItem();
+    QGraphicsTextItem* healthText = new QGraphicsTextItem();
+
+    scene->addItem(scoreText);
+    scene->addItem(healthText);
+
+    Stats::setHealthText(healthText);
+    Stats::setScoreText(scoreText);
+
+>>>>>>> f0f4151c72bb2d9913c63fd21d150e99d9bcbae1
 
     return a.exec();
 }
