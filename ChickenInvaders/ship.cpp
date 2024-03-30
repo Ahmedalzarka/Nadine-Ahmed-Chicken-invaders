@@ -7,7 +7,7 @@
 
 Ship::Ship()
 {
-    setPixmap(QPixmap("/imgs/ship.png"));
+    setPixmap(QPixmap("D:/code/university/CSII Lab/Assignment2/Nadine-Ahmed-Chicken-invaders/ChickenInvaders/imgs/ship.png"));
 
 }
 
