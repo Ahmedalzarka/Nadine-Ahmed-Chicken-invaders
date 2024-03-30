@@ -7,7 +7,7 @@
 
 Ship::Ship()
 {
-    setPixmap(QPixmap("/imgs/ship.png"));
+    setPixmap(QPixmap(":imgs/ship.png"));
 
 }
 

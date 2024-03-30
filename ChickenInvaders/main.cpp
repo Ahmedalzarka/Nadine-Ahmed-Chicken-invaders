@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "player.h"
 #include <QApplication>
 #include <QGraphicsView>
@@ -7,23 +6,16 @@
 #include <QGraphicsEllipseItem>
 #include <QGraphicsTextItem>
 #include <QGraphicsPixmapItem>
-=======
-#include <QApplication>
-#include <QGraphicsRectItem>
-#include <QGraphicsScene>
-#include<QGraphicsView>
 #include <QTimer>
 #include <QDebug>
 #include <QBrush>
 #include "ship.h"
 #include "stats.h"
->>>>>>> f0f4151c72bb2d9913c63fd21d150e99d9bcbae1
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-<<<<<<< HEAD
     QGraphicsView view;
     view.setFixedSize(800, 600);
 
@@ -34,7 +26,7 @@ int main(int argc, char *argv[])
     scene.setSceneRect(0, 0, 800, 600);
 
     //chicken enemy
-    QPixmap chicken("C:/Users/Nadine/Downloads/Assignment 2 - Game (2).zip/chicken.png");
+    QPixmap chicken(":imgs/chicken.png");
 
     // score
     QGraphicsTextItem * score = new QGraphicsTextItem;
@@ -55,7 +47,7 @@ int main(int argc, char *argv[])
     scene.addItem(image1);
 
     // ship player
-    QPixmap ship("C:/Users/Nadine/Desktop/AUC/Semester 4/CS2 Lab/ChickenInvaders/ship.png");
+    QPixmap ship(":imgs/ship.png");
     laser = ship.scaledToWidth(80);
     laser = ship.scaledToHeight(80);
     Player * player = new Player(score);
@@ -67,7 +59,7 @@ int main(int argc, char *argv[])
 
     view.setScene(&scene);
     view.show();
-=======
+
     QGraphicsScene * scene = new QGraphicsScene();
     QGraphicsPixmapItem * player = new Ship();
     scene-> addItem(player);
@@ -95,8 +87,6 @@ int main(int argc, char *argv[])
 
     Stats::setHealthText(healthText);
     Stats::setScoreText(scoreText);
-
->>>>>>> f0f4151c72bb2d9913c63fd21d150e99d9bcbae1
 
     return a.exec();
 }

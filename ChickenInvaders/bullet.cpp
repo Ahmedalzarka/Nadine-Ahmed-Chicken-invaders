@@ -6,7 +6,7 @@
 
 Bullet::Bullet(): QObject(), QGraphicsPixmapItem()
 {
-    this->setPixmap(QPixmap("./imgs/red_laser.png").scaled(35,35));
+    this->setPixmap(QPixmap(".\imgs\red_laser.png").scaled(35,35));
 
 
     QTimer * timer = new QTimer(this);

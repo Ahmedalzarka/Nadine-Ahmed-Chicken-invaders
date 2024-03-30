@@ -6,7 +6,7 @@
 
 SpaceShips::SpaceShips() {
 
-    setPixmap(QPixmap(":/ship.png"));
+    setPixmap(QPixmap(":imgs/ship.png"));
 }
 void SpaceShips::keyPressEvent(QKeyEvent *event)
 {
