@@ -6,7 +6,11 @@
 
 Bullet::Bullet(): QObject(), QGraphicsPixmapItem()
 {
+<<<<<<< HEAD
     this->setPixmap(QPixmap(".\imgs\red_laser.png").scaled(35,35));
+=======
+    this->setPixmap(QPixmap("D:/code/university/CSII Lab/Assignment2/Nadine-Ahmed-Chicken-invaders/ChickenInvaders/imgs/red_laser.png").scaled(35,35));
+>>>>>>> 343102116c94f7e48fa76dc382817f6e6e4fd3a1
 
 
     QTimer * timer = new QTimer(this);
